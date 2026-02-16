@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LARIS · horology</title>
+    <!-- minimalist luxury style – system fonts, clean spacing, light touch -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fbfaf8;
+            color: #1e1e1e;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            font-weight: 300;
+            font-size: 1.05rem;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2.8rem 2rem;
+        }
+
+        /* ---- smart logo area (wordmark + subtle symbol) ---- */
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            padding-bottom: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .logo-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #1e1e1e;
+            color: #f5f0ea;
+            font-size: 1.9rem;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            font-weight: 330;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .logo-text {
+            font-size: 1.9rem;
+            font-weight: 320;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #1c1c1c;
+            border-left: 1px solid #ccc;
+            padding-left: 1.2rem;
+        }
+
+        .logo-text span {
+            font-weight: 360;
+            color: #7a6a5a;
+            margin-left: 0.2rem;
+            font-size: 1.7rem;
+        }
+
+        /* ---- intro section (clean, airy) ---- */
+        .intro {
+            margin: 2.8rem 0 5rem 0;
+            max-width: 740px;
+        }
+
+        .intro h1 {
+            font-weight: 320;
+            font-size: 2.8rem;
+            letter-spacing: -0.5px;
+            color: #26221f;
+            margin-bottom: 1.2rem;
+            line-height: 1.2;
+        }
+
+        .intro h1 .light {
+            font-weight: 280;
+            color: #65584e;
+        }
+
+        .intro p {
+            font-size: 1.3rem;
+            color: #3e3a37;
+            font-weight: 280;
+            border-left: 3px solid #d4c9bf;
+            padding-left: 2rem;
+            margin-top: 0.75rem;
+        }
+
+        /* ---- categories grid (luxurious white space) ---- */
+        .section-title {
+            font-weight: 300;
+            font-size: 2.2rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #2c2824;
+            margin-bottom: 2.5rem;
+            border-bottom: 1px solid #e2dbd4;
+            padding-bottom: 0.75rem;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2.8rem 2rem;
+            margin: 3rem 0 5rem 0;
+        }
+
+        .category-card {
+            background: #ffffff;
+            padding: 1.2rem 1.2rem 2rem 1.2rem;
+            box-shadow: 0 10px 22px -12px rgba(0,0,0,0.08);
+            transition: transform 0.25s ease, box-shadow 0.3s;
+            border-radius: 0px;  /* clean rectangular minimalism */
+            border: 1px solid #f0ebe6;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 22px 30px -14px rgba(70, 50, 40, 0.12);
+            border-color: #dad2c9;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            background-color: #f2efeb;
+            display: block;
+            transition: opacity 0.2s;
+            filter: grayscale(8%) contrast(101%);
+        }
+
+        .category-card h3 {
+            font-size: 1.6rem;
+            font-weight: 320;
+            margin: 1.5rem 0 0.4rem 0;
+            letter-spacing: 1px;
+            color: #2e2925;
+        }
+
+        .category-card p {
+            font-size: 0.95rem;
+            color: #7b7169;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 320;
+        }
+
+        /* payment options – minimal, elegant list */
+        .payment-section {
+            margin: 5.5rem 0 2.5rem 0;
+            background: #f8f6f4;
+            padding: 2.8rem 2.8rem;
+            border: 1px solid #e6dfd8;
+        }
+
+        .payment-flex {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 3rem;
+        }
+
+        .payment-label {
+            font-size: 1.35rem;
+            font-weight: 340;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #3b342f;
+            min-width: 180px;
+        }
+
+        .payment-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem 2.8rem;
+        }
+
+        .payment-items span {
+            background: transparent;
+            padding: 0.4rem 0;
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: #4c443e;
+            border-bottom: 1px dotted #cfc6be;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .payment-items span::before {
+            content: "⌛"; /* subtle separator */
+            font-size: 0.9rem;
+            opacity: 0.5;
+            margin-right: 0.3rem;
+        }
+
+        /* footer (tiny brand note) */
+        .footer-note {
+            margin-top: 4rem;
+            text-align: right;
+            font-size: 0.85rem;
+            color: #a69b92;
+            letter-spacing: 1px;
+            border-top: 1px solid #ece5df;
+            padding-top: 1.5rem;
+            font-weight: 280;
+        }
+
+        /* responsiveness */
+        @media (max-width: 600px) {
+            .container { padding: 1.5rem 1.2rem; }
+            .logo-wrapper { flex-wrap: wrap; gap: 0.4rem; }
+            .logo-text { font-size: 1.5rem; padding-left: 0.8rem; }
+            .intro h1 { font-size: 2.2rem; }
+            .intro p { font-size: 1.1rem; }
+            .section-title { font-size: 1.8rem; }
+            .payment-flex { flex-direction: column; gap: 1.2rem; }
+        }
+
+        /* image placeholder fallback (if links break – luxury grey) */
+        img {
+            background: #eae5e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- smart logo: abstract icon + wordmark -->
+        <header class="logo-wrapper">
+            <div class="logo-icon" aria-label="brand icon">⌚</div>
+            <div class="logo-text">LARIS<span>· ATELIER</span></div>
+        </header>
+
+        <!-- introductory paragraph about the company (filled with placeholder content) -->
+        <section class="intro">
+            <h1>essence of <span class="light">permanent time</span></h1>
+            <p>LARIS Atelier was founded on the belief that a watch is more than an instrument — it is a silent companion through eras. Rooted in Swiss craftsmanship and contemporary minimalism, each piece balances precision with soul. Our timepieces are conceived for those who appreciate the poetry of understatement.</p>
+        </section>
+
+        <!-- product categories section with images (example categories + unsplash / high‑res images) -->
+        <section>
+            <h2 class="section-title">collections · categories</h2>
+            <div class="category-grid">
+                <!-- category 1: SMARTWATCHES -->
+                <article class="category-card">
+                    <img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1052&q=80" 
+                         alt="Elegant smartwatch with minimalist display">
+                    <h3>connected</h3>
+                    <p>smartwatches</p>
+                </article>
+                <!-- category 2: AUTOMATIC WATCHES -->
+                <article class="category-card">
+                    <img src="https://images.unsplash.com/photo-1623993636006-5fd9d7f6d8e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1064&q=80" 
+                         alt="Automatic mechanical watch with leather strap">
+                    <h3>automatic</h3>
+                    <p>mechanical heritage</p>
+                </article>
+                <!-- category 3: CHRONOGRAPH (extra category)  -->
+                <article class="category-card">
+                    <img src="https://images.unsplash.com/photo-1614164185128-5c0a9e5c81ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80" 
+                         alt="Chronograph watch with tachymeter bezel">
+                    <h3>chronograph</h3>
+                    <p>precision timing</p>
+                </article>
+                <!-- category 4: DRESS WATCHES (extra upscale) -->
+                <article class="category-card">
+                    <img src="https://images.unsplash.com/photo-1612816092012-1dc0b0b871ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1064&q=80" 
+                         alt="Ultra-thin dress watch with alligator strap">
+                    <h3>grand classique</h3>
+                    <p>dress watches</p>
+                </article>
+                <!-- additional category (to show flexibility: DIVERS) -->
+                <article class="category-card">
+                    <img src="https://images.unsplash.com/photo-1547996163-b41df9ff16a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=987&q=80" 
+                         alt="Luxury dive watch on steel bracelet">
+                    <h3>aqua</h3>
+                    <p>diver's instruments</p>
+                </article>
+                <!-- category 6: PILOT (just to fill the minimalist grid) -->
+                <article class="category-card">
+                    <img src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1035&q=80" 
+                         alt="Classic pilot watch with large crown">
+                    <h3>aviation</h3>
+                    <p>pilot heritage</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- payment options clearly listed (minimal block) -->
+        <section class="payment-section">
+            <div class="payment-flex">
+                <div class="payment-label">secure payment</div>
+                <div class="payment-items">
+                    <span>PayPal</span>
+                    <span>M-Pesa</span>
+                    <span>Cash (by appointment)</span>
+                    <span>Bank wire</span>
+                    <span>American Express</span>
+                    <span>Bitcoin</span>
+                </div>
+            </div>
+            <!-- subtle footnote: all payments are encrypted / white glove -->
+            <div style="margin-top: 1.8rem; font-size: 0.9rem; color: #8d8179; font-weight: 280; letter-spacing: 0.3px;">
+                white-glove checkout · concierge available
+            </div>
+        </section>
+
+        <!-- very discreet footer / brand signature (minimal) -->
+        <div class="footer-note">
+            LARIS ATELIER — time held lightly
+        </div>
+    </div>
+
+    <!-- no extra scripts; pure HTML/CSS luxury restraint -->
+</body>
+</html>
